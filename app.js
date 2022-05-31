@@ -1,3 +1,6 @@
+/*
+A friend of mine looked over my code and helped me so some parts look a bit copied pasted but i can explain my code 
+*/
 const game = {
   title: 'Guess the Number!',
   biggestNum: 100,
@@ -34,3 +37,4 @@ render: function() {
 }
 }
 game.play()
+

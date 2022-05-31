@@ -3,7 +3,7 @@ const game = {
   biggestNum: 100,
   smallestNum: 1,
   secretNum: null,
-  prevGuesses:[1,2,3,48],
+  prevGuesses:[],
   play: function() {
     this.secretNum = Math.floor(Math.random() * 
       (this.biggestNum - this.smallestNum + 1)) + this.smallestNum
@@ -23,15 +23,14 @@ getGuess: function() {
   }
   return guess
 },
-  start: function(){
-    if(this.secretNum === this.getGuess){
-      alert(`Congrats! You guessed the number in ${this.prevGuess.length}!`)
-    }else if(this.secretNum < this.getGuess){
-      alert(`Your guess was to hig: ${game.prevGuess}`)
-    }
-    else if(this.secretNum > this.getGuess){
-      alert(`Your guess was to low: ${game.prevGuess}`)
-    }
+render: function() {
+  if (this.secretNum === this.prevGuesses[this.prevGuesses.length] - 1) {
+    alert(`Congrats! You guessed the number in ${this.prevGuesses.length}`)
+  } else if (this.secretNum > this.prevGuesses[this.prevGuesses.length] - 1){
+      alert(`Your guess is too low. Previous guesses: ${game.prevGuesses}`)
+  } else if (this.secretNum < this.prevGuesses[this.prevGuesses.length] - 1){
+    alert(`Your guess is too high. Previous guesses: ${game.prevGuesses}`)
   }
 }
-game.play
+}
+game.play()
